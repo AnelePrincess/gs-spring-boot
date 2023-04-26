@@ -3,6 +3,11 @@ pool:
   demands: maven
 
 steps:
+- task: ExtractFiles@1
+   inputs:    archiveFilePatterns: '*.zip'    
+      destinationFolder: '$(Build.SourcesDirectory)'
+      cleanDestinationFolder: false
+      
 - task: Maven@3
   displayName: 'Maven app/pom.xml'
   inputs:
